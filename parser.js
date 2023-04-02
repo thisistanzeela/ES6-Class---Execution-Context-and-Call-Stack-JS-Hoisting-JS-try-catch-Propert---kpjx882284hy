@@ -15,3 +15,5 @@ class API {
     this.#secure = url.startsWith('https');
   }
 }
+const s = new API('http://api.com/api/hello');
+console.log(s.url);
