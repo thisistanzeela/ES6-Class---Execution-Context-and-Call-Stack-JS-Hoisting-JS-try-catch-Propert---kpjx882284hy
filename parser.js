@@ -1,11 +1,17 @@
-var parser = require('xml-js');
+class API {
+  #secure;
+  constructor(url, method = 'GET') {
+    this.url = url;
+    this.method = method;
+    this.#secure = url.startsWith('https');
+  }
 
-const xml = require('fs').readFileSync('junit.xml', 'utf-8');
+  isSecure() {
+    return this.#secure;
+  }
 
-const options = {compact: true, ignoreComment: true, spaces: 4};
-
-const result = parser.xml2json(xml, options)
-
-const parsedResult = JSON.stringify(result, '');
-
-console.log(parsedResult);
+  updateUrl(url) {
+    this.url = url;
+    this.#secure = url.startsWith('https');
+  }
+}
