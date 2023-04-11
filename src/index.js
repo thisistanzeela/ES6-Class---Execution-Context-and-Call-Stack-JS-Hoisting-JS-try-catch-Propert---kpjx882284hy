@@ -1,28 +1,28 @@
 class API {
-  #secure;
+  secure;
   
   constructor(url, method = 'GET') {
     this.url = url;
     this.method = method;
     
     if (url.startsWith('https')) {
-      this.#secure = true;
+      this.secure = true;
     } else {
-      this.#secure = false;
+      this.secure = false;
     }
   }
   
   isSecure() {
-    return this.#secure;
+    return this.secure;
   }
   
   updateUrl(url) {
     this.url = url;
     
     if (url.startsWith('https')) {
-      this.#secure = true;
+      this.secure = true;
     } else {
-      this.#secure = false;
+      this.secure = false;
     }
   }
 }
